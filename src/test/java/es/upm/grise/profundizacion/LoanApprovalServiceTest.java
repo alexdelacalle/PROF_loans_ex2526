@@ -58,7 +58,6 @@ public class LoanApprovalServiceTest {
                 () -> service.evaluateLoan(a2, 1000, 12));
     }
 
-    // ---------- DECISION LOGIC ----------
 
     @Test
     void shouldRejectWhenScoreBelow500() {
@@ -130,7 +129,6 @@ public class LoanApprovalServiceTest {
     void shouldStayManualReviewWhenNotVip() {
         LoanApprovalService.Applicant a =
                 new LoanApprovalService.Applicant(3000, 620, false, false);
-        // Base decision = MANUAL_REVIEW, no es VIP → no se eleva
 
         assertEquals(LoanApprovalService.Decision.MANUAL_REVIEW,
                 service.evaluateLoan(a, 1000, 12));
